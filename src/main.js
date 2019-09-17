@@ -1,6 +1,7 @@
-import './main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import './main.scss';
 import App from './components/App';
 
 let groceries = [

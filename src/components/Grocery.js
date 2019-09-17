@@ -1,10 +1,16 @@
 import React from 'react'
 
 const Grocery = props => {
-  let groceryName = `${props.name} ${props.selected}`
+  let groceryName = props.name
+
+  if (props.selectedStatus === true){
+    groceryName = `${props.name} SELECTED`
+  }
 
   return(
-    <li onClick={props.handleClick}>{groceryName}</li>
+    <li onClick={props.setSelectedGroceryIdClosure}>
+      {groceryName}
+    </li>
   )
 }
 
