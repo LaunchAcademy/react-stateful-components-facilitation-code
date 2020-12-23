@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Grocery = props => {
-  let groceryName = props.name
+  // console.log("SELECTED STATUS OF")
+  // console.log(props.name)
+  // console.log(props.selectedStatus)
+
+  let groceryText = props.name
 
   if (props.selectedStatus === true){
-    groceryName = `${props.name} SELECTED`
-  }
+    groceryText += " SELECTED"
+  } 
 
   return(
-    <li onClick={props.setSelectedGroceryIdClosure}>
-      {groceryName}
+    <li onClick={props.selectGroceryClosure} >
+      {groceryText} 
     </li>
   )
 }
