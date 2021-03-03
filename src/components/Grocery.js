@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const Grocery = props => {
   // console.log("SELECTED STATUS OF")
@@ -12,7 +12,7 @@ const Grocery = props => {
   } 
 
   return(
-    <li onClick={props.selectGroceryClosure} >
+    <li onClick={props.selectGroceryFunction} >
       {groceryText} 
     </li>
   )
