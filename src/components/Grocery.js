@@ -1,21 +1,22 @@
 import React from 'react'
 
 const Grocery = props => {
-  // console.log("SELECTED STATUS OF")
-  // console.log(props.name)
-  // console.log(props.selectedStatus)
-
+  debugger 
   let groceryText = props.name
 
-  if (props.selectedStatus === true){
-    groceryText += " SELECTED"
-  } 
+  // if (props.selectedStatus === true){
+  //   groceryText += " SELECTED"
+  // } 
 
   return(
-    <li onClick={props.selectGroceryFunction} >
+    <li>
       {groceryText} 
     </li>
   )
 }
 
 export default Grocery
+
+
+
+// onClick={props.selectGroceryFunction}
