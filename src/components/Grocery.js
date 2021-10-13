@@ -1,22 +1,44 @@
 import React, { useState } from 'react'
 
-const Grocery = props => {
-  let selectedText = ""
+// const useState = (defaultState) => {
+//   let stateValue = defaultState
 
-  if (props.selectedStatus === true) {
-    selectedText = "SELECTED"
+//   const setterFunction = (newState) = {
+//     stateValue = newState
+//     // RERENDER THE COMPONENT
+//   }
+
+//   return [stateValue, setterFunction]
+// }
+
+
+// const numberArray = [10, 25, 38]
+
+// // const firstNumber = numberArray[0]
+// // const secondNumber = numberArray[1]
+// // const thirdNumber = numberArray[2]
+
+// const [foobar, secondNumber, banana] = numberArray
+ 
+// console.log(foobar) // 10
+// console.log(foobar) // 25
+// console.log(foobar) // 38
+
+const Grocery = props => {
+
+  // const [selectedGroceryStatus, setSelectedGroceryStatus] = useState(false)
+
+  let displayText = props.name 
+
+  if (props.displayStatus === true){
+    displayText = `${props.name} | SELECTED`
   }
 
   return(
-    <li onClick={props.helperSetGroceryId}>
-      {props.name} {selectedText}
+    <li onClick={props.toggleSelectedDisplay}>
+      {displayText}
     </li>
   )
 }
 
 export default Grocery
-
-
-  // what do we want to track: selectedStatus
-  // when do we want to change it: when a user clicks on a grocery li
-  // what logic is necessary for displaying this change: if...else logic to add "SELECTED" next to the grocery

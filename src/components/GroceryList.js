@@ -7,32 +7,43 @@ import Grocery from './Grocery'
 
 const GroceryList = (props) => {
 
-  const [selectedGroceryId, setSelectedGroceryId] = useState(null)
-  const groceryList = props.groceries.map(grocery => {
+  const groceries = [
+    { id: 1, name: "Oranges" },
+    { id: 2, name: "Bananas" },
+    { id: 3, name: "Bread" }
+  ]
 
-    const helperSetGroceryId = () => {
+  const [selectedGroceryId, setSelectedGroceryId] = useState(null)
+
+  const groceryList = groceries.map(grocery => {
+
+    const toggleSelectedDisplay = () => {
       setSelectedGroceryId(grocery.id)
     }
 
-    let selectedStatus = false
+    let displayStatus = false
     if (selectedGroceryId === grocery.id){
-      selectedStatus = true
+      displayStatus = true
     }
 
     return(
       <Grocery
         key={grocery.id}
         name={grocery.name}
-        helperSetGroceryId={helperSetGroceryId}
-        selectedStatus={selectedStatus}
+        toggleSelectedDisplay={toggleSelectedDisplay}
+        displayStatus={displayStatus}
       />
     )
   })
 
   return(
-    <ul>
-      {groceryList}
-    </ul>
+    <div>
+      <h1>Grocery List</h1>
+
+      <ul>
+        {groceryList}
+      </ul>
+    </div>
   )
 }
 
