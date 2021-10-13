@@ -1,34 +1,33 @@
 import React, { useState } from 'react'
 import Grocery from './Grocery'
 
+  // what do we want to track: selectedGroceryId
+  // when do we want to change it: when a user clicks on a grocery li
+  // what logic is necessary for displaying this change: conditionally tell ONE grocery, if it should display with SELECTED
+
 const GroceryList = (props) => {
+
   const [selectedGroceryId, setSelectedGroceryId] = useState(null)
-  // console.log("STATE")
-  // console.log(selectedGroceryId)
-  // debugger
   const groceryList = props.groceries.map(grocery => {
 
-    const selectGroceryClosure = () => {
-      // debugger
-      return setSelectedGroceryId(grocery.id)
+    const helperSetGroceryId = () => {
+      setSelectedGroceryId(grocery.id)
     }
 
     let selectedStatus = false
     if (selectedGroceryId === grocery.id){
-      // debugger
       selectedStatus = true
-    } 
+    }
 
     return(
       <Grocery
         key={grocery.id}
         name={grocery.name}
+        helperSetGroceryId={helperSetGroceryId}
         selectedStatus={selectedStatus}
-        selectGroceryClosure={selectGroceryClosure}
       />
     )
   })
-
 
   return(
     <ul>
